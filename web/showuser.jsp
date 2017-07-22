@@ -18,12 +18,13 @@
     <tr>
         <td>username</td>
         <td>password</td>
+        <td>CreateTime</td>
     </tr>
-    <c:forEach items="${cs}" var="c" varStatus="st">
+    <c:forEach items="${users}" var="c" varStatus="st">
         <tr>
             <td>${c.username}</td>
             <td>${c.password}</td>
-
+            <td>${c.createtime}</td>
         </tr>
     </c:forEach>
 </table>

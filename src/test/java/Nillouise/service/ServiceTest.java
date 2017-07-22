@@ -21,10 +21,8 @@ public class ServiceTest extends SpringTestCase
         List<UserInfo> users = userInfoService.list();
         for(UserInfo user:users)
         {
-            System.out.println("test");
+            System.out.println("test mindanchor");
             System.out.println(user);
         }
     }
-
-
 }

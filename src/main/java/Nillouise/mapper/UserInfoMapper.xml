@@ -25,12 +25,23 @@
         <!--update userinfo set name=#{username} where id=#{id}-->
     <!--</update>-->
 
-    <resultMap id="BaseResultMap" type="Nillouise.model.UserInfo">
-    </resultMap>
 
-    <select id="list" resultMap="BaseResultMap">
+    <!--handnote-->
+    <!-- 注意这里是导入类型，可能是命名空间的问题,单纯用mybatis时，根本不用导入这个语句（同时后面也不需要用resultMap，而是用resultType) -->
+    <!--<resultMap id="BaseResultMap" type="Nillouise.model.UserInfo">-->
+    <!--</resultMap>-->
+    <!--&lt;!&ndash; 注意这里使用导入类型BaseResultMap，要用的是resultMap &ndash;&gt;-->
+    <!--<select id="list" resultMap="BaseResultMap">-->
+        <!--select * from userinfo-->
+    <!--</select>-->
+
+    <select id="list" resultType="Nillouise.model.UserInfo">
         select * from userinfo
     </select>
+    <insert id="add" parameterType="UserInfo" >
+    insert into userinfo ( username,password ) values (#{username},#{password})
+    </insert>
+
 
 
 </mapper>

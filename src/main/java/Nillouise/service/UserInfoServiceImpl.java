@@ -25,4 +25,8 @@ public class UserInfoServiceImpl implements UserInfoService
     }
 
 
+    public boolean add(UserInfo userInfo)
+    {
+        return userInfoMapper.add(userInfo) > 0;
+    }
 }

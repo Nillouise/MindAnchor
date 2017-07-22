@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface UserInfoMapper
 {
-    public void add(UserInfo userInfo);
+    public int add(UserInfo userInfo);
     public void delete(int id);
     public UserInfo get(int id);
     public UserInfo get(String username);
