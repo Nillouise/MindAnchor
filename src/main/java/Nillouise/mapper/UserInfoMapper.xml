@@ -38,7 +38,8 @@
     <select id="list" resultType="Nillouise.model.UserInfo">
         select * from userinfo
     </select>
-    <insert id="add" parameterType="UserInfo" >
+    <!--这里的命名空间一定要处理好，不然连服务器都开不了 -->
+    <insert id="add" parameterType="Nillouise.model.UserInfo" >
     insert into userinfo ( username,password ) values (#{username},#{password})
     </insert>
 

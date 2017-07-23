@@ -42,18 +42,18 @@ public class CRUDController
 
     }
 
-    @RequestMapping(value = "/register.action",
-            method = {RequestMethod.POST})
-    public ModelAndView addUser(HttpServletRequest  request)
-    {
-
-        List<UserInfo> list =  userInfoService.list();
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("showuser.jsp");
-        mav.addObject("users",list);
-
-        return mav;
-
-    }
+//    @RequestMapping(value = "/register.action",
+//            method = {RequestMethod.POST})
+//    public ModelAndView addUser(HttpServletRequest  request)
+//    {
+//
+//        List<UserInfo> list =  userInfoService.list();
+//        ModelAndView mav = new ModelAndView();
+//        mav.setViewName("showuser.jsp");
+//        mav.addObject("users",list);
+//
+//        return mav;
+//
+//    }
 
 }
