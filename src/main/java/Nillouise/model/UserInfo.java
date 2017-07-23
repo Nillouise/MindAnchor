@@ -7,6 +7,14 @@ import java.util.Date;
  */
 public class UserInfo
 {
+    public UserInfo()
+    {
+        id=0;
+        username="";
+        password="";
+        createtime = new Date();
+    }
+
     public String getUsername()
     {
         return username;
@@ -57,7 +65,6 @@ public class UserInfo
     private String username;
     private String password;
     private Date createtime;
-
 
 
 }
