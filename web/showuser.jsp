@@ -17,13 +17,11 @@
 <table align='center' border='1' cellspacing='0'>
     <tr>
         <td>username</td>
-        <td>password</td>
         <td>CreateTime</td>
     </tr>
     <c:forEach items="${users}" var="c" varStatus="st">
         <tr>
             <td>${c.username}</td>
-            <td>${c.password}</td>
             <td>${c.createtime}</td>
         </tr>
     </c:forEach>

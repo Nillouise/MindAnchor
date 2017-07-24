@@ -11,6 +11,8 @@
     <title>$Title$</title>
   </head>
   <body>
-  首页
+  <jsp:include page="gadget/headerTool.jsp"></jsp:include>
+
+  首页内容
   </body>
 </html>
