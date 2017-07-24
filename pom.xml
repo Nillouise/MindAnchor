@@ -78,6 +78,15 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+
+        <!--使用httpSession-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
     <!-- mybatis的xml文件放在java文件夹下，在idea是有bug的（好像因为idea不会把java文件夹下的xml文件当成是资源 -->

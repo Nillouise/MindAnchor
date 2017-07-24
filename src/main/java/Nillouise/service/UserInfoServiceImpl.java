@@ -39,4 +39,18 @@ public class UserInfoServiceImpl implements UserInfoService
         LOGGER.info(logString );
         return success;
     }
+
+    public boolean select(UserInfo userInfo)
+    {
+        List<UserInfo> list = userInfoMapper.select(userInfo);
+        if(list.isEmpty())
+        {
+            return false;
+        }
+        else {
+            UserInfo r = list.get(0);
+            userInfo.copyFrom(r);
+            return true;
+        }
+    }
 }

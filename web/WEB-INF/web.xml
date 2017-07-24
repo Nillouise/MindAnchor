@@ -8,7 +8,7 @@
     <context-param>
         <param-name>log4jConfigLocation</param-name>
         <!-- 注意这里不是/log4j.properties,他查找的是resources目录，另外好像不用创建listerner-->
-        <!-- 还要一点要注意部署包到服务器，如slf4j-api-1.7.21 -->
+        <!-- 还要一点要注意部署包到服务器，如slf4j-api-1.7.21,才能成功加载 -->
         <param-value>classpath:log4j.properties</param-value>
     </context-param>
 

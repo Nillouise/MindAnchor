@@ -12,6 +12,15 @@
 </head>
 <body>
 <div>
+    <%
+        Boolean tryLoginFail = (Boolean)session.getAttribute("tryLoginFail");
+        if(tryLoginFail==null){tryLoginFail=false;}
+        if(tryLoginFail==true)
+        {
+            response.getWriter().println("<h>login fail</h>");
+        }
+
+    %>
 <form action="login.action" method="post">
     <fieldset>
         <legend>登录</legend>

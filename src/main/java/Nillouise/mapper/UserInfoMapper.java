@@ -16,4 +16,5 @@ public interface UserInfoMapper
     public void update(UserInfo userInfo);
     public List<UserInfo> list();
     public int count();
+    public List<UserInfo> select(UserInfo userInfo);
 }

@@ -15,6 +15,24 @@ public class UserInfo
         createtime = new Date();
     }
 
+
+
+    public boolean copyFrom(UserInfo source)
+    {
+        this.id = source.id;
+        this.username = source.username;
+        this.password = source.password;
+        this.createtime = source.createtime;
+        return true;
+    }
+
+    public boolean copyFrom(LoginForm source)
+    {
+        this.username = source.getUsername();
+        this.password = source.getPassword();
+        return true;
+    }
+
     public String getUsername()
     {
         return username;

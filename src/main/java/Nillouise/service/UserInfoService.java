@@ -11,4 +11,5 @@ public interface UserInfoService
 {
     List<UserInfo> list();
     boolean add(UserInfo userInfo);
+    boolean select(UserInfo userInfo);
 }
