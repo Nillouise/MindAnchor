@@ -26,8 +26,8 @@ public class UserInfoServiceImpl implements UserInfoService
     public List<UserInfo> list()
     {
         List<UserInfo> list = userInfoMapper.list();
-        String logString = "logging list"+list;
-        LOGGER.debug(logString);
+        String logString = "logging list: "+list;
+        LOGGER.info(logString);
         return list;
     }
 
@@ -35,9 +35,8 @@ public class UserInfoServiceImpl implements UserInfoService
     public boolean add(UserInfo userInfo)
     {
         boolean success = userInfoMapper.add(userInfo) > 0;
-        String logString = "register "+userInfo.toString()+String.valueOf(success);
-        LOGGER.debug(logString );
-        System.out.println(logString);
+        String logString = "Add user: " +userInfo.toString()+" "+String.valueOf(success);
+        LOGGER.info(logString );
         return success;
     }
 }

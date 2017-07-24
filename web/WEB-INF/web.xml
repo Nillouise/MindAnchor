@@ -4,6 +4,15 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+    <!--日志log4j要随web启动 -->
+    <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <!-- 注意这里不是/log4j.properties,他查找的是resources目录，另外好像不用创建listerner-->
+        <!-- 还要一点要注意部署包到服务器，如slf4j-api-1.7.21 -->
+        <param-value>classpath:log4j.properties</param-value>
+    </context-param>
+
+
     <!-- spring的配置文件-->
     <context-param>
         <param-name>contextConfigLocation</param-name>

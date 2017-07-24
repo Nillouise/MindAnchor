@@ -40,8 +40,9 @@
     </select>
     <!--这里的命名空间一定要处理好，不然连服务器都开不了 -->
     <insert id="add" parameterType="Nillouise.model.UserInfo" >
-    insert into userinfo ( username,password ) values (#{username},#{password})
+    insert ignore  into userinfo ( username,password ) values (#{username},#{password})
     </insert>
+    <!--上面要加ignore，因为username是唯一的，当插入失败时，直接返回0（表示没影响任何数据），而不是返回错误 -->
 
 
 

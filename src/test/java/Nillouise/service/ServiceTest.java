@@ -20,6 +20,7 @@ public class ServiceTest extends SpringTestCase
     {
 
         List<UserInfo> users = userInfoService.list();
+        userInfoService.add(users.get(0));
 //        for(UserInfo user:users)
 //        {
 //            System.out.println("test mindanchor");
