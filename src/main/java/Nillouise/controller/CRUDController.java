@@ -24,7 +24,7 @@ import java.util.List;
 @Controller
 public class CRUDController
 {
-    private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CRUDController.class);
 
     @Autowired
     private UserInfoService userInfoService;

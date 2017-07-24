@@ -2,6 +2,8 @@ package Nillouise.controller;
 
 import Nillouise.model.UserInfo;
 import Nillouise.service.UserInfoService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class RegisterController
 {
+    private static final Logger LOGGER = LoggerFactory.getLogger(RegisterController.class);
+
     @Autowired
     private UserInfoService userInfoService;
 
@@ -28,7 +32,10 @@ public class RegisterController
     @RequestMapping(value = "/register.action",method = RequestMethod.POST)
     public String datebind(@ModelAttribute("userinfo") UserInfo userInfo)
     {
-        System.out.println(userInfoService.add(userInfo));
+        userInfoService.add(userInfo);
         return "redirect:/showuser";
     }
+
+
+
 }

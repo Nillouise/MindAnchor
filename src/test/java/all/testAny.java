@@ -3,11 +3,14 @@ package all;
 import Nillouise.controller.LoginController;
 import Nillouise.mapper.UserInfoMapper;
 import Nillouise.model.UserInfo;
+import Nillouise.service.UserInfoServiceImpl;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.InputStream;
 import java.util.Date;
@@ -18,6 +21,7 @@ import java.util.List;
  */
 public class testAny
 {
+    private static final Logger LOGGER = LoggerFactory.getLogger(testAny.class);
     //只测试Batis的，不结合spring mvc
     @Test
     public void onlyBatis() throws Exception
@@ -40,6 +44,13 @@ public class testAny
         }
     }
 
+    @Test
+    public void log() throws Exception
+    {
+        LOGGER.info("dfdfd");
+
+
+    }
 
 
 }
