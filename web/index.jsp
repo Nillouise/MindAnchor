@@ -12,7 +12,8 @@
   </head>
   <body>
   <jsp:include page="gadget/headerTool.jsp"></jsp:include>
-
   首页内容
+
+
   </body>
 </html>
