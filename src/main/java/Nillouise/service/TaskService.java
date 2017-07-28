@@ -12,6 +12,6 @@ public interface TaskService
     boolean add(Task task);
     boolean delete(Task task);
     boolean update(Task task);
-    List<Task> select(int userid, int begin, int end);
-    List<Task> select(int userid);
+    List<Task> list(int userid, int begin, int end);
+    List<Task> list(int userid);
 }

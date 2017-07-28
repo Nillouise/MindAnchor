@@ -1,6 +1,7 @@
 package Nillouise.service;
 
 import Nillouise.baseTest.SpringTestCase;
+import Nillouise.model.Task;
 import Nillouise.model.UserInfo;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ public class ServiceTest extends SpringTestCase
 {
     @Autowired
     private UserInfoService userInfoService;
+    @Autowired
+    private TaskService taskService;
 
     @Test
     public void showUser()
@@ -27,4 +30,17 @@ public class ServiceTest extends SpringTestCase
 //            System.out.println(user);
 //        }
     }
+
+    @Test
+    public void taskTest()
+    {
+        Task task = new Task();
+        task.setUserid(1);
+        task.setContent("test content");
+        task.setTitle("test title");
+        task.setMindEnergy(10);
+
+        taskService.add(task);
+    }
+
 }

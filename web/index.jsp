@@ -13,7 +13,7 @@
   <body>
   <jsp:include page="gadget/headerTool.jsp"></jsp:include>
   首页内容
-
+<jsp:include page="gadget/newtask.jsp"></jsp:include>
 
   </body>
 </html>

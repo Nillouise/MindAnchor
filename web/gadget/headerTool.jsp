@@ -4,10 +4,14 @@
 <p style="text-align:center">
     top bar&nbsp;&nbsp;&nbsp;&nbsp;
 
+    <%--<c:if var="loggedIn" test="${'true'==sessionScope['loginStatus']}"/>--%>
+    <%--${loggedIn}--%>
+
     <c:if test="${'true'==sessionScope['loginStatus']}">
         ${sessionScope['userInfo']['username']}
     </c:if>
-    <c:if test="${!'true'==sessionScope['loginStatus']}">
+    <%-- handnote 这里一定要打括号才行，jstl的优先级应该有问题 --%>
+    <c:if test="${!('true'==sessionScope['loginStatus'])}">
         <a href='/login'> 登录 </a>
         <a href='/registerpage'> 注册 </a>
     </c:if>

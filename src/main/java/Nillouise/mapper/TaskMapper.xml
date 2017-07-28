@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 把这个xml文件变成UserInfoMapper的实现类 -->
+<mapper namespace="Nillouise.mapper.TaskMapper">
+    <select id="list" resultType="Nillouise.model.Task">
+        select * from task where userid = #{id}
+    </select>
+    <insert id="add" parameterType="Nillouise.model.Task" >
+        insert into task ( userid,costMindEnergy,title,content) values (#{userid},#{costMindEnergy},#{title},#{content})
+    </insert>
+</mapper>
