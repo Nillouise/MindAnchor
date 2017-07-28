@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <!--日志log4j要随web启动 -->
+    <!--日志log4j要随web启动,才能正确输出到idea的控制台 -->
     <context-param>
         <param-name>log4jConfigLocation</param-name>
         <!-- 注意这里不是/log4j.properties,他查找的是resources目录，另外好像不用创建listerner-->
@@ -30,4 +30,27 @@
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <!-- 解决中文乱码问题 -->
+    <filter>
+        <filter-name>characterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>characterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!--覆盖掉默认设置， 让首页的显示也由controller处理 -->
+    <welcome-file-list>
+        <welcome-file></welcome-file>
+    </welcome-file-list>
 </web-app>

@@ -13,5 +13,5 @@ public interface TaskService
     boolean delete(Task task);
     boolean update(Task task);
     List<Task> list(int userid, int begin, int end);
-    List<Task> list(int userid);
+//    List<Task> list(int userid);
 }

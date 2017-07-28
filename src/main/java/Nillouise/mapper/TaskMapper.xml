@@ -5,9 +5,9 @@
 <!-- 把这个xml文件变成UserInfoMapper的实现类 -->
 <mapper namespace="Nillouise.mapper.TaskMapper">
     <select id="list" resultType="Nillouise.model.Task">
-        select * from task where userid = #{id}
+        select * from task where userid = #{userid} order by id desc limit #{begin},#{end}
     </select>
     <insert id="add" parameterType="Nillouise.model.Task" >
-        insert into task ( userid,costMindEnergy,title,content) values (#{userid},#{costMindEnergy},#{title},#{content})
+        insert into task ( userid,costmindenergy,title,content) values (#{userid},#{costmindenergy},#{title},#{content})
     </insert>
 </mapper>

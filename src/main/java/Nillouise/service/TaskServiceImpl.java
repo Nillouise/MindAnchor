@@ -19,8 +19,8 @@ public class TaskServiceImpl implements TaskService
 
     public boolean add(Task task)
     {
-
-        return taskMapper.add(task)>0;
+        boolean success = taskMapper.add(task)>0;
+        return success;
     }
 
     public boolean delete(Task task)
@@ -35,12 +35,11 @@ public class TaskServiceImpl implements TaskService
 
     public List<Task> list(int userid, int begin, int end)
     {
-        return null;
+        return taskMapper.list(userid,begin,end);
     }
 
     public List<Task> list(int userid)
     {
-        List<Task> r = taskMapper.list(userid);
-        return r;
+        return list(userid,0,100000);
     }
 }

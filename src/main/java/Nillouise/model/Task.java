@@ -30,24 +30,24 @@ public class Task
         this.id = id;
     }
 
-    public Date getCreateTime()
+    public Date getCreatetime()
     {
-        return createTime;
+        return createtime;
     }
 
-    public void setCreateTime(Date createTime)
+    public void setCreatetime(Date createtime)
     {
-        this.createTime = createTime;
+        this.createtime = createtime;
     }
 
-    public int getMindEnergy()
+    public int getCostmindenergy()
     {
-        return costMindEnergy;
+        return costmindenergy;
     }
 
-    public void setMindEnergy(int costMindEnergy)
+    public void setCostmindenergy(int costmindenergy)
     {
-        this.costMindEnergy = costMindEnergy;
+        this.costmindenergy = costmindenergy;
     }
 
     public String getTitle()
@@ -80,10 +80,18 @@ public class Task
         this.tags = tags;
     }
 
+    @Override
+    public String toString()
+    {
+        return title+" "+content;
+    }
+
     public int userid;
     public int id;
-    public Date createTime=new Date();
-    public int costMindEnergy;
+    public Date createtime =new Date();
+
+
+    public int costmindenergy;
     public String title="";
     public String content="";
     public List<Tag> tags;

@@ -3,6 +3,7 @@ package Nillouise.controller;
 import Nillouise.model.LoginForm;
 import Nillouise.model.UserInfo;
 import Nillouise.service.UserInfoService;
+import Nillouise.variable.StringConstant;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,12 +57,12 @@ public class LoginController
 
         if(loginSuccess)
         {
-            session.setAttribute("loginStatus",true);
-            session.setAttribute("userInfo",curUser);
+            session.setAttribute(StringConstant.loginStatus,true);
+            session.setAttribute(StringConstant.userInfo,curUser);
             return "redirect:/";
         }else{
-            session.setAttribute("loginStatus",false);
-            session.setAttribute("tryLoginFail",true);
+            session.setAttribute(StringConstant.loginStatus,false);
+            session.setAttribute(StringConstant.tryLoginFail,true);
             return "redirect:/login";
         }
     }

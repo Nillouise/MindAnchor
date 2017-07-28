@@ -38,9 +38,20 @@ public class ServiceTest extends SpringTestCase
         task.setUserid(1);
         task.setContent("test content");
         task.setTitle("test title");
-        task.setMindEnergy(10);
+        task.setCostmindenergy(10);
 
         taskService.add(task);
+    }
+
+    @Test
+    public void taskListTest()
+    {
+        List<Task> list = taskService.list(1,0,3);
+        for(Task t:list)
+        {
+            System.out.println(t);
+        }
+
     }
 
 }

@@ -19,10 +19,10 @@
         <td>username</td>
         <td>CreateTime</td>
     </tr>
-    <c:forEach items="${users}" var="c" varStatus="st">
+    <c:forEach items="${users}" var="user" varStatus="st">
         <tr>
-            <td>${c.username}</td>
-            <td>${c.createtime}</td>
+            <td>${user.username}</td>
+            <td>${user.createtime}</td>
         </tr>
     </c:forEach>
 </table>
