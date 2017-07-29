@@ -1,5 +1,11 @@
 package Nillouise.model;
 
+import Nillouise.tool.MindEnergy;
+import Nillouise.variable.StringConstant;
+import org.joda.time.Instant;
+import org.joda.time.Interval;
+
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -13,9 +19,11 @@ public class UserInfo
         username="";
         password="";
         createtime = new Date();
+        MindEnergy mindEnergy = new MindEnergy(new Date(),premindenergy);
+        premindenergytime = mindEnergy.getLasttime();
+        maxmindenergy = StringConstant.initMaxMindEnergy;
+        premindenergy = maxmindenergy;
     }
-
-
 
     public boolean copyFrom(UserInfo source)
     {
@@ -73,10 +81,62 @@ public class UserInfo
         this.id = id;
     }
 
+    public int getPremindenergy()
+    {
+        return premindenergy;
+    }
+
+    public void setPremindenergy(int premindenergy)
+    {
+        this.premindenergy = premindenergy;
+    }
+
+    public Date getPremindenergytime()
+    {
+        return premindenergytime;
+    }
+
+    public void setPremindenergytime(Date premindenergytime)
+    {
+        this.premindenergytime = premindenergytime;
+    }
+
+    public int getMaxmindenergy()
+    {
+        return maxmindenergy;
+    }
+
+    public void setMaxmindenergy(int maxmindenergy)
+    {
+        this.maxmindenergy = maxmindenergy;
+    }
+
+
     @Override
     public String toString()
     {
         return getUsername()+" "+getPassword();
+    }
+
+    //获得当前应该有多少MindEnergy，并会自动修改校准时间和当前MindEnergy
+    public int getCurmindenergy()
+    {
+        MindEnergy mindEnergy = new MindEnergy(premindenergytime,premindenergy);
+        premindenergytime = mindEnergy.getLasttime();
+        premindenergy = mindEnergy.getCurmindenergy();
+
+        return premindenergy;
+    }
+
+    //消耗MindEnergy，成功返回true，失败返回false
+    public boolean subCurmindenergy(int substract)
+    {
+        if(premindenergy-substract<0)
+        {
+            return false;
+        }
+        premindenergy-=substract;
+        return true;
     }
 
     private int id;
@@ -84,5 +144,9 @@ public class UserInfo
     private String password;
     private Date createtime;
 
+    private int premindenergy;
+    private Date premindenergytime;
+
+    private int maxmindenergy;
 
 }

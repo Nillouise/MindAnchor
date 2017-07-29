@@ -40,12 +40,14 @@
     </select>
     <!--这里的命名空间一定要处理好，不然连服务器都开不了 -->
     <insert id="add" parameterType="Nillouise.model.UserInfo" >
-    insert ignore  into userinfo ( username,password ) values (#{username},#{password})
+    insert ignore  into userinfo ( username,password,premindenergytime,premindenergy,maxmindenergy ) values (#{username},#{password},#{premindenergytime},#{premindenergy},#{maxmindenergy})
     </insert>
     <!--上面要加ignore，因为username是唯一的，当插入失败时，直接返回0（表示没影响任何数据），而不是返回错误 -->
 
     <select id="select" resultType="Nillouise.model.UserInfo" parameterType="Nillouise.model.UserInfo">
         select * from userinfo where username = #{username} AND password = #{password}
     </select>
+
+
 
 </mapper>

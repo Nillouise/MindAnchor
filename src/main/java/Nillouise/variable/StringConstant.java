@@ -8,4 +8,6 @@ public interface StringConstant
     String loginStatus = "loginStatus";
     String userInfo = "userInfo";
     String tryLoginFail = "tryLoginFail";
+    int minutesAMindEnergy = 6;
+    int initMaxMindEnergy = 100;
 }

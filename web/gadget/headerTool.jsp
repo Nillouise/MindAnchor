@@ -8,6 +8,10 @@
     <%--${loggedIn}--%>
 
     <c:if test="${'true'==sessionScope['loginStatus']}">
+        <span style="font-weight: bold;">Mind Energy:
+        ${sessionScope['userInfo']['curmindenergy']}
+        </span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
         ${sessionScope['userInfo']['username']}
     </c:if>
     <%-- handnote 这里一定要打括号才行，jstl的优先级应该有问题 --%>

@@ -3,9 +3,11 @@ package Nillouise.service;
 import Nillouise.baseTest.SpringTestCase;
 import Nillouise.model.Task;
 import Nillouise.model.UserInfo;
+import Nillouise.tool.MindEnergy;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,7 +23,6 @@ public class ServiceTest extends SpringTestCase
     @Test
     public void showUser()
     {
-
         List<UserInfo> users = userInfoService.list();
   //      userInfoService.add(new UserInfo());
 //        for(UserInfo user:users)
@@ -53,5 +54,15 @@ public class ServiceTest extends SpringTestCase
         }
 
     }
+
+    @Test
+    public void testMindEnergy()
+    {
+        Date cur = new Date(new Date().getTime() -1000*60*6*100);
+        MindEnergy  mindEnergy =  new MindEnergy(cur,0);
+        System.out.println(mindEnergy.getLasttime());
+        System.out.println(mindEnergy.getCurmindenergy());
+    }
+
 
 }
