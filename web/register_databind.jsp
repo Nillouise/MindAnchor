@@ -11,6 +11,7 @@
 <html>
 <head>
     <title>利用数据绑定实现登录</title>
+    <link rel="stylesheet" href="css/background.css" type="text/css"/>
 </head>
 <body>
 <form:form commandName="userinfo" action="register_databind" method="post">

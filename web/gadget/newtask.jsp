@@ -8,7 +8,7 @@
         <option value="10">10</option>
     </select><br/>
     <input type="text" name="title" style="width: 80%;"/><br/>
-    <input type="text" name="content" style="height: 300px;width: 80%;"><br/>
+    <input type="text" name="content" style="height: 100px;width: 80%;"><br/>
     tags:<br/>
     <input type="submit" name="" id="submit">
 </form>

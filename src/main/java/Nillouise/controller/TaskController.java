@@ -37,14 +37,21 @@ public class TaskController
             return "redirect:/login";
         }
 
-        int userid = ((UserInfo) session.getAttribute(StringConstant.userInfo)).getId();
+        UserInfo userInfo = (UserInfo) session.getAttribute(StringConstant.userInfo);
+        int userid = userInfo.getId();
         LOGGER.info(title + " " +content+" 消耗体力： "+tasktype);
-        Task task = new Task();
-        task.setTitle(title);
-        task.setCostmindenergy(tasktype);
-        task.setContent(content);
-        task.setUserid(userid);
-        taskService.add(task);
+
+        if(userInfo.subCurmindenergy(tasktype))
+        {
+            Task task = new Task();
+            task.setTitle(title);
+            task.setCostmindenergy(tasktype);
+            task.setContent(content);
+            task.setUserid(userid);
+            taskService.add(task);
+        }else {
+            return "redirect:/error/addtask.jsp";
+        }
 
         return "redirect:/";
     }

@@ -9,6 +9,7 @@
 <html>
   <head>
     <title>$Title$</title>
+    <link rel="stylesheet" href="css/background.css" type="text/css"/>
   </head>
   <body>
   <jsp:include page="gadget/headerTool.jsp"></jsp:include>

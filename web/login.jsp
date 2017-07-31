@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>登录</title>
+    <link rel="stylesheet" href="css/background.css" type="text/css"/>
 </head>
 <body>
 <div>
