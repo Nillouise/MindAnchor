@@ -42,4 +42,5 @@
     <!-- 注意到了这里，就不是mybatis的范畴了，只是单纯spring的bean对象（我猜） -->
     <!-- 自动扫描注解的bean -->
     <context:component-scan base-package="Nillouise.service" />
+
 </beans>

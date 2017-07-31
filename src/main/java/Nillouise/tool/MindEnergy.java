@@ -14,8 +14,16 @@ public class MindEnergy
     private int preMindEnergy;
     private Date curtime;
     private int curmindenergy;
+    private int maxmindenergy=100000;
     public MindEnergy(Date pretime,int preMindEnergy)
     {
+        this(pretime,preMindEnergy,100000);
+    }
+
+    public MindEnergy(Date pretime,int preMindEnergy,int maxMindEnergy)
+    {
+        this.maxmindenergy = maxMindEnergy;
+
         this.pretime = pretime;
         this.preMindEnergy = preMindEnergy;
 
@@ -30,7 +38,19 @@ public class MindEnergy
         c.set(Calendar.MINUTE,curminute);
         c.set(Calendar.SECOND,0);
         this.curtime = c.getTime();
+
+        //把体力值设为最大10000
+        if(this.curmindenergy>maxMindEnergy)
+        {
+            this.curmindenergy = maxMindEnergy;
+        }
+        if(this.preMindEnergy>maxMindEnergy)
+        {
+            this.preMindEnergy = maxMindEnergy;
+        }
     }
+
+
     public int getCurmindenergy()
     {
         return curmindenergy;

@@ -15,4 +15,9 @@
     <!--mvc:resources 作用是把.css文件等标记为资源，不需要控制器来解释他们 -->
     <mvc:resources mapping="/css/**" location="/css/"/>
     <mvc:resources mapping="/*.html" location="/"/>
+
+    <!--handnote 这个拦截器要放在这个dispatcher-servlet，调度器里，不能放在spring里 -->
+    <mvc:interceptors>
+        <bean id="mindEnergyInterceptor" class="Nillouise.interceptor.MindEnergyInterceptor"/>
+    </mvc:interceptors>
 </beans>
