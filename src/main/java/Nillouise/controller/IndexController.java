@@ -30,8 +30,7 @@ public class IndexController
             method = {RequestMethod.GET})
     public String loginPage(HttpSession session,Model model)
     {
-        System.out.println("through index controller");
-
+        LOGGER.debug("through index controller");
         Boolean isLogin = (Boolean)session.getAttribute(StringConstant.loginStatus);
         UserInfo userInfo = (UserInfo)session.getAttribute(StringConstant.userInfo);
 

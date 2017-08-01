@@ -49,6 +49,14 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <!-- 用servlet的listener技术监听session -->
+    <listener>
+        <listener-class>
+            Nillouise.listener.SessionListener
+        </listener-class>
+    </listener>
+
+
     <!--覆盖掉默认设置， 让首页的显示也由controller处理 -->
     <welcome-file-list>
         <welcome-file></welcome-file>

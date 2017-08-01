@@ -67,4 +67,12 @@ public class LoginController
         }
     }
 
+    @RequestMapping(value = "/loginout.action",
+            method = {RequestMethod.GET})
+    public String LoginOutAction(HttpSession session)
+    {
+        session.invalidate();
+        return "redirect:/";
+    }
+
 }

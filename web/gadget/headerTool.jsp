@@ -13,6 +13,7 @@
         </span>
         &nbsp;&nbsp;&nbsp;&nbsp;
         ${sessionScope['userInfo']['username']}
+        <a href="/loginout.action"> 注销 </a>
     </c:if>
     <%-- handnote 这里一定要打括号才行，jstl的优先级应该有问题 --%>
     <c:if test="${!('true'==sessionScope['loginStatus'])}">

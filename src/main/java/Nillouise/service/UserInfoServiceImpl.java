@@ -53,4 +53,11 @@ public class UserInfoServiceImpl implements UserInfoService
             return true;
         }
     }
+
+    public boolean update(UserInfo userInfo)
+    {
+        //to do
+        userInfoMapper.update(userInfo);
+        return true;
+    }
 }

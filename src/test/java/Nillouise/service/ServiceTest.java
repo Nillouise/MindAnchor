@@ -64,5 +64,22 @@ public class ServiceTest extends SpringTestCase
         System.out.println(mindEnergy.getCurmindenergy());
     }
 
+    @Test
+    public void testupdate()
+    {
+        List<UserInfo> list = userInfoService.list();
+        UserInfo userInfo = list.get(0);
+        Date date = new Date();
+        userInfo.setPremindenergytime(new Date());
+        userInfoService.update(userInfo);
+    }
+    @Test
+    public void testrecoverupdate()
+    {
+        List<UserInfo> list = userInfoService.list();
+        UserInfo userInfo = list.get(0);
+        userInfo.setPremindenergytime(new Date(new Date().getTime()-10000000));
+        userInfoService.update(userInfo);
+    }
 
 }

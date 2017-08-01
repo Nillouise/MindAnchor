@@ -48,6 +48,11 @@
         select * from userinfo where username = #{username} AND password = #{password}
     </select>
 
-
+    <!--<update id="update" parameterType="Nillouise.model.UserInfo">-->
+      <!--update userinfo set ( username,password,premindenergytime,premindenergy,maxmindenergy ) values (#{username},#{password},#{premindenergytime},#{premindenergy},#{maxmindenergy}) where id=#{id}-->
+    <!--</update>-->
+    <update id="update" parameterType="Nillouise.model.UserInfo">
+        update userinfo set username=#{username},password=#{password},premindenergytime=#{premindenergytime},premindenergy=#{premindenergy},maxmindenergy=#{maxmindenergy} where id=#{id}
+    </update>
 
 </mapper>
