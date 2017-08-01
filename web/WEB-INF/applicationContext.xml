@@ -46,4 +46,10 @@
     <!--&lt;!&ndash; 好像光光在这里扫描是没用的，还要在对应的类用注解如（@Repository，@Controller）注解，spring才能找到并正确注入 &ndash;&gt;-->
     <!-- spring好像不能往httpsessionlistener注入对象，https://stackoverflow.com/questions/11718216/httpsessionlistener-using-spring-injections-and-services-impossible-to-access -->
     <!--<context:component-scan base-package="Nillouise.listener" />-->
+
+    <!--https://www.mkyong.com/spring/spring-how-to-do-dependency-injection-in-your-session-listener/-->
+    <!--<bean id="SessionListenerService" class="Nillouise.service.UserInfoServiceImpl" />-->
+
+
+
 </beans>
