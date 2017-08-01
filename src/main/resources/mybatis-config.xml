@@ -12,6 +12,9 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <!--<property name="url" value="jdbc:mysql://localhost:3306/mindanchor?characterEncoding=UTF-8&amp;serverTimezone=CST"/>-->
+                <!-- 我电脑用的好像是CST时区（在java.date里看到的），这里用UTC时区好像会出问题，导致时间不一致 -->
+                <!--更新：不会不一致，数据库里保存的是UTC时区，但查询时会自动转换过来 -->
                 <property name="url" value="jdbc:mysql://localhost:3306/mindanchor?characterEncoding=UTF-8&amp;serverTimezone=UTC"/>
                 <property name="username" value="root"/>
                 <property name="password" value="admin"/>
