@@ -7,9 +7,10 @@
                     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
                     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
                     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
-    <context:component-scan base-package="Nillouise.controller"></context:component-scan>
 
     <!--注册Controller定义的控制器的bean对象 -->
+    <context:component-scan base-package="Nillouise.controller"></context:component-scan>
+
     <mvc:annotation-driven/>
     <!-- 这里的mvc:resources 有问题，要把idea默认的上面的命名空间改掉才行，https://stackoverflow.com/questions/15406231/no-declaration-can-be-found-for-element-mvcannotation-driven -->
     <!--mvc:resources 作用是把.css文件等标记为资源，不需要控制器来解释他们 -->
@@ -20,4 +21,5 @@
     <mvc:interceptors>
         <bean id="mindEnergyInterceptor" class="Nillouise.interceptor.MindEnergyInterceptor"/>
     </mvc:interceptors>
+
 </beans>

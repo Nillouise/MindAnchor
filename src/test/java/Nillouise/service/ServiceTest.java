@@ -71,6 +71,7 @@ public class ServiceTest extends SpringTestCase
         UserInfo userInfo = list.get(0);
         Date date = new Date();
         userInfo.setPremindenergytime(new Date());
+        userInfo.setPremindenergy(55);
         userInfoService.update(userInfo);
     }
     @Test
