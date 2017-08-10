@@ -7,7 +7,8 @@
     <select id="list" resultType="Nillouise.model.Task">
         select * from task where userid = #{userid} order by id desc limit #{begin},#{end}
     </select>
-    <insert id="add" parameterType="Nillouise.model.Task" >
+    <!--useGeneratedKeys="true" keyProperty="id" 这两个字段设置了mybatis会把主键注入到传入参数的对应字段 -->
+    <insert id="add" parameterType="Nillouise.model.Task" useGeneratedKeys="true" keyProperty="id">
         insert into task ( userid,costmindenergy,title,content) values (#{userid},#{costmindenergy},#{title},#{content})
     </insert>
 </mapper>

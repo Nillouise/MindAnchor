@@ -17,10 +17,10 @@ public class TaskServiceImpl implements TaskService
     @Autowired
     TaskMapper taskMapper;
 
-    public boolean add(Task task)
+    public int add(Task task)
     {
-        boolean success = taskMapper.add(task)>0;
-        return success;
+        taskMapper.add(task);
+        return task.getId();
     }
 
     public boolean delete(Task task)

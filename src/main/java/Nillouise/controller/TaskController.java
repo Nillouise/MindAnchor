@@ -1,7 +1,9 @@
 package Nillouise.controller;
 
+import Nillouise.model.TagItem;
 import Nillouise.model.Task;
 import Nillouise.model.UserInfo;
+import Nillouise.service.TagItemService;
 import Nillouise.service.TaskService;
 import Nillouise.service.UserInfoService;
 import Nillouise.variable.StringConstant;
@@ -26,11 +28,13 @@ public class TaskController
 
     @Autowired
     private TaskService taskService;
-
+    @Autowired
+    private TagItemService tagItemService;
 
     @RequestMapping(value = "/addtask.action",method = RequestMethod.POST)
-    public String addtask(HttpSession session, String title, String content, int tasktype)
+    public String addtask(HttpSession session, String title, String content, int tasktype,Integer[] selecttag)
     {
+
         Boolean login = (Boolean)session.getAttribute(StringConstant.loginStatus);
         if(login==null || login==false)
         {
@@ -41,6 +45,7 @@ public class TaskController
         int userid = userInfo.getId();
         LOGGER.info(title + " " +content+" 消耗体力： "+tasktype);
 
+
         if(userInfo.subCurmindenergy(tasktype))
         {
             Task task = new Task();
@@ -49,6 +54,19 @@ public class TaskController
             task.setContent(content);
             task.setUserid(userid);
             taskService.add(task);
+
+            if(selecttag!=null)
+            {
+                for (Integer i:selecttag)
+                {
+                    TagItem tagItem = new TagItem();
+                    tagItem.setTagid(i);
+                    tagItem.setUserid(userid);
+                    tagItem.setTaskid(task.getId());
+                    tagItemService.add(tagItem);
+                }
+            }
+
         }else {
             return "redirect:/error/addtask.jsp";
         }

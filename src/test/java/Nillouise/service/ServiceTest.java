@@ -58,6 +58,18 @@ public class ServiceTest extends SpringTestCase
     }
 
     @Test
+    public void taskPrimaryKey() throws Exception
+    {
+        Task task = new Task();
+        task.setUserid(1);
+        task.setContent("test content");
+        task.setTitle("test title");
+        task.setCostmindenergy(10);
+        taskService.add(task);
+        System.out.println(task.getId());
+    }
+
+    @Test
     public void testMindEnergy()
     {
         Date cur = new Date(new Date().getTime() -1000*60*6*100);
@@ -114,5 +126,6 @@ public class ServiceTest extends SpringTestCase
     {
         List<Tag> list = tagItemService.list(1);
     }
+
 
 }

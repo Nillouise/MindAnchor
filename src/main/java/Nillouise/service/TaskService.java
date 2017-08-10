@@ -9,7 +9,8 @@ import java.util.List;
  */
 public interface TaskService
 {
-    boolean add(Task task);
+    //失败返回-1，其他返回task的id
+    int add(Task task);
     boolean delete(Task task);
     boolean update(Task task);
     List<Task> list(int userid, int begin, int end);
