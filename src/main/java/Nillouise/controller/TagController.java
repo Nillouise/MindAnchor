@@ -55,7 +55,7 @@ public class TagController
         tag.setContent(content);
         tag.setTitle(title);
         tagService.add(tag);
-
+        session.setAttribute(StringConstant.usertags,tagService.list(userInfo.getId()));
         return "redirect:/tagmanage";
     }
 

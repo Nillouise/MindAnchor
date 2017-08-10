@@ -2,6 +2,7 @@ package Nillouise.controller;
 
 import Nillouise.model.LoginForm;
 import Nillouise.model.UserInfo;
+import Nillouise.service.TagService;
 import Nillouise.service.UserInfoService;
 import Nillouise.variable.StringConstant;
 import com.sun.org.apache.xpath.internal.operations.Bool;
@@ -31,6 +32,9 @@ public class LoginController
     @Autowired
     private UserInfoService userInfoService;
 
+    @Autowired
+    private TagService tagService;
+
     @RequestMapping(value = "/login",
             method = {RequestMethod.GET})
     public String loginPage(HttpSession session)
@@ -59,6 +63,8 @@ public class LoginController
         {
             session.setAttribute(StringConstant.loginStatus,true);
             session.setAttribute(StringConstant.userInfo,curUser);
+            session.setAttribute(StringConstant.usertags,tagService.list(curUser.getId()));
+
             return "redirect:/";
         }else{
             session.setAttribute(StringConstant.loginStatus,false);

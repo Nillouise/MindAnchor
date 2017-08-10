@@ -4,10 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 把这个xml文件变成UserInfoMapper的实现类 -->
 <mapper namespace="Nillouise.mapper.TagMapper">
-    <select id="list" resultType="Nillouise.model.Tag">
-        select * from tag where userid = #{userid} order by id desc limit #{begin},#{end}
-    </select>
     <insert id="add" parameterType="Nillouise.model.Tag" >
         insert into tag (userid,title,content) values (#{userid},#{title},#{content})
     </insert>
+
+    <select id="list" resultType="Nillouise.model.Tag">
+        select * from tag where userid = #{userid} order by id desc limit #{begin},#{end}
+    </select>
+    <select id="select" resultType="Nillouise.model.Tag">
+        select * from tag where id = #{tagid}
+    </select>
+
 </mapper>

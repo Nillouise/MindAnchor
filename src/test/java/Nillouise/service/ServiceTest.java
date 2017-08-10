@@ -2,6 +2,7 @@ package Nillouise.service;
 
 import Nillouise.baseTest.SpringTestCase;
 import Nillouise.model.Tag;
+import Nillouise.model.TagItem;
 import Nillouise.model.Task;
 import Nillouise.model.UserInfo;
 import Nillouise.tool.MindEnergy;
@@ -101,6 +102,17 @@ public class ServiceTest extends SpringTestCase
         {
             System.out.println(i);
         }
+        t = tagService.select(1);
+        System.out.println("测试select "+t);
+    }
+
+    @Autowired
+    private TagItemService tagItemService;
+
+    @Test
+    public void testTagItemService()
+    {
+        List<Tag> list = tagItemService.list(1);
     }
 
 }

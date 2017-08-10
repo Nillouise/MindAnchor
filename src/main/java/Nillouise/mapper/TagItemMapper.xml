@@ -4,5 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 把这个xml文件变成UserInfoMapper的实现类 -->
 <mapper namespace="Nillouise.mapper.TagItemMapper">
-
+    <select id="list" resultType="Nillouise.model.TagItem">
+        select * from tagitem where taskid = #{taskid} order by id desc limit #{begin},#{end}
+    </select>
+    <insert id="add" parameterType="Nillouise.model.TagItem" >
+        insert into tagitem (userid,tagid,taskid) values (#{userid},#{tagid},#{taskid})
+    </insert>
 </mapper>

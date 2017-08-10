@@ -41,5 +41,10 @@ public class TagServiceImpl implements TagService
         return cnt>0;
     }
 
+    public Tag select(int tagid)
+    {
+        return tagMapper.select(tagid);
+    }
+
 
 }

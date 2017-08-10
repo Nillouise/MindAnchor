@@ -13,4 +13,5 @@ public interface TagService
     List<Tag> list(int userid, int begin, int end);
     List<Tag> list(int userid);
     boolean delete(int tagid);
+    Tag select(int tagid);
 }

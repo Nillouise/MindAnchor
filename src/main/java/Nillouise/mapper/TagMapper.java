@@ -15,4 +15,5 @@ public interface TagMapper
     public int delete(int tagid);
     //public List<Task> list(int id);
     public List<Tag> list(@Param("userid")int id, @Param("begin")int begin, @Param("end")int end);
+    public Tag select(@Param("tagid")int id);
 }
