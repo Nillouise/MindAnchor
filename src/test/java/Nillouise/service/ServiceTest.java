@@ -91,6 +91,12 @@ public class ServiceTest extends SpringTestCase
     public void testTagService()
     {
         List<Tag> list = tagService.list(1,0,10);
+        Tag t = new Tag();
+        t.setUserid(1);
+        t.setTitle("junit");
+        t.setContent("content");
+        tagService.add(t);
+
         for (Tag i :list)
         {
             System.out.println(i);

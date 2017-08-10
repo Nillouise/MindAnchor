@@ -13,7 +13,7 @@
         </span>
         &nbsp;&nbsp;&nbsp;&nbsp;
         ${sessionScope['userInfo']['username']}
-        <a href="/loginout.action"> 注销 </a>
+        <a href="/loginout.action">注销</a>&nbsp;
         <a href='/tagmanage'>标签</a>
     </c:if>
     <%-- handnote 这里一定要打括号才行，jstl的优先级应该有问题 --%>
