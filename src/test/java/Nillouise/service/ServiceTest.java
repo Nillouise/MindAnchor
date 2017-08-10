@@ -1,6 +1,7 @@
 package Nillouise.service;
 
 import Nillouise.baseTest.SpringTestCase;
+import Nillouise.model.Tag;
 import Nillouise.model.Task;
 import Nillouise.model.UserInfo;
 import Nillouise.tool.MindEnergy;
@@ -81,6 +82,19 @@ public class ServiceTest extends SpringTestCase
         UserInfo userInfo = list.get(0);
         userInfo.setPremindenergytime(new Date(new Date().getTime()-10000000));
         userInfoService.update(userInfo);
+    }
+
+    @Autowired
+    private TagService tagService;
+
+    @Test
+    public void testTagService()
+    {
+        List<Tag> list = tagService.list(1,0,10);
+        for (Tag i :list)
+        {
+            System.out.println(i);
+        }
     }
 
 }

@@ -9,16 +9,17 @@
 
     <c:if test="${'true'==sessionScope['loginStatus']}">
         <span style="font-weight: bold;">Mind Energy:
-        ${sessionScope['userInfo']['curmindenergy']}
+        ${sessionScope['userInfo']['curmindenergy']} / ${sessionScope['userInfo']['maxmindenergy']}
         </span>
         &nbsp;&nbsp;&nbsp;&nbsp;
         ${sessionScope['userInfo']['username']}
         <a href="/loginout.action"> 注销 </a>
+        <a href='/tagmanage'>标签</a>
     </c:if>
     <%-- handnote 这里一定要打括号才行，jstl的优先级应该有问题 --%>
     <c:if test="${!('true'==sessionScope['loginStatus'])}">
-        <a href='/login'> 登录 </a>
-        <a href='/registerpage'> 注册 </a>
+        <a href='/login'> 登录 </a>&nbsp;
+        <a href='/registerpage'> 注册 </a>&nbsp;
     </c:if>
 
 
