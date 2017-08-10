@@ -11,5 +11,6 @@ public interface TagService
 {
     boolean add(Tag tag);
     List<Tag> list(int userid, int begin, int end);
+    List<Tag> list(int userid);
     boolean delete(int tagid);
 }

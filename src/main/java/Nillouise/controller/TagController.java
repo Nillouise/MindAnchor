@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * Created by win7x64 on 2017/8/10.
@@ -35,6 +36,9 @@ public class TagController
 
         if(isLogin)
         {
+            UserInfo userInfo = (UserInfo)session.getAttribute(StringConstant.userInfo);
+            List<Tag> tags = tagService.list(userInfo.getId());
+            session.setAttribute("tags",tags);
             return "tagmanage.jsp";
         }
         else {
@@ -52,7 +56,7 @@ public class TagController
         tag.setTitle(title);
         tagService.add(tag);
 
-        return "redirect:/tagmanage.jsp";
+        return "redirect:/tagmanage";
     }
 
 }

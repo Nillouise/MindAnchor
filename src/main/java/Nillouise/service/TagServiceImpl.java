@@ -29,9 +29,17 @@ public class TagServiceImpl implements TagService
         return r;
     }
 
+    public List<Tag> list(int userid)
+    {
+        List<Tag> r = list(userid,0,10000);
+        return r;
+    }
+
     public boolean delete(int tagid)
     {
         int cnt = tagMapper.delete(tagid);
         return cnt>0;
     }
+
+
 }
