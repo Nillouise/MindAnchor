@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*,Nillouise.model.UserInfo"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <p style="text-align:center">
-    top bar&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/">top bar</a>&nbsp;&nbsp;&nbsp;&nbsp;
 
     <%--<c:if var="loggedIn" test="${'true'==sessionScope['loginStatus']}"/>--%>
     <%--${loggedIn}--%>

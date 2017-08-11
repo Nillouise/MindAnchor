@@ -19,6 +19,7 @@ public class TaskServiceImpl implements TaskService
     TaskMapper taskMapper;
     @Autowired
     TagItemService tagItemService;
+
     //返回这个task的id
     public int add(Task task)
     {
@@ -63,6 +64,7 @@ public class TaskServiceImpl implements TaskService
         }
         return tasks;
     }
+
     public Task select(int taskid)
     {
         return taskMapper.select(taskid);

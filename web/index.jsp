@@ -8,14 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Mind Anchor</title>
     <link rel="stylesheet" href="css/background.css" type="text/css"/>
   </head>
   <body>
   <jsp:include page="gadget/headerTool.jsp"></jsp:include>
   首页内容
   <jsp:include page="gadget/mindEnergyManager.jsp"></jsp:include>
-<jsp:include page="gadget/newtask.jsp"></jsp:include>
+  <jsp:include page="gadget/newtask.jsp"></jsp:include>
 
   </body>
 </html>
