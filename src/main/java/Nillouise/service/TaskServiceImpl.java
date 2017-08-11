@@ -33,6 +33,12 @@ public class TaskServiceImpl implements TaskService
         return cnt>0;
     }
 
+    public boolean delete(int taskid)
+    {
+        Task task = select(taskid);
+        return delete(task);
+    }
+
     public boolean update(Task task)
     {
         return false;
@@ -51,6 +57,20 @@ public class TaskServiceImpl implements TaskService
     public List<Task> list(int userid)
     {
         List<Task> tasks = list(userid,0,100000);
+        for (Task i :tasks)
+        {
+            i.setTags(tagItemService.list(i.getId()));
+        }
+        return tasks;
+    }
+    public Task select(int taskid)
+    {
+        return taskMapper.select(taskid);
+    }
+
+    public List<Task> listDel(int userid, int begin, int end)
+    {
+        List<Task> tasks = taskMapper.listdel(userid,begin,end);
         for (Task i :tasks)
         {
             i.setTags(tagItemService.list(i.getId()));

@@ -47,6 +47,14 @@ public class ServiceTest extends SpringTestCase
     }
 
     @Test
+    public void testTaskSelect() throws Exception
+    {
+        Task task = taskService.select(6);
+        taskService.delete(task);
+        System.out.println(task);
+    }
+
+    @Test
     public void testTaskBlock() throws Exception
     {
         List<Task> list = taskService.list(1,0,10);

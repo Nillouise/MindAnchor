@@ -45,7 +45,6 @@ public class TaskController
         int userid = userInfo.getId();
         LOGGER.info(title + " " +content+" 消耗体力： "+tasktype);
 
-
         if(userInfo.subCurmindenergy(tasktype))
         {
             Task task = new Task();
@@ -71,7 +70,15 @@ public class TaskController
         }else {
             return "redirect:/error/addtask.jsp";
         }
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = "/deltask.action",method = RequestMethod.GET)
+    public String deltask(HttpSession session,int id)
+    {
+        taskService.delete(id);
 
         return "redirect:/";
     }
+
 }

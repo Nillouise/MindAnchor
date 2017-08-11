@@ -14,5 +14,7 @@ public interface TaskMapper
     public int update(Task task);
 //  public List<Task> list(int id);
     public List<Task> list(@Param("userid")int id, @Param("begin")int begin, @Param("end")int end);
+    public List<Task> listdel(@Param("userid")int id, @Param("begin")int begin, @Param("end")int end);
+    public Task select(@Param("taskid")int taskid);
 
 }
