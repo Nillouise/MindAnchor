@@ -1,5 +1,9 @@
 package Nillouise.model;
 
+import Nillouise.service.TagItemService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.Date;
 import java.util.List;
 
@@ -89,6 +93,22 @@ public class Task
     {
         this.block = block;
     }
+
+    public String getTagsstring()
+    {
+        if(tags==null)
+        {
+            return "";
+        }else {
+            String r ="";
+            for(Tag tag:tags)
+            {
+                r+=tag.title+";";
+            }
+            return r.trim();
+        }
+    }
+
 
     @Override
     public String toString()

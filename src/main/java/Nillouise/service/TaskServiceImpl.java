@@ -2,6 +2,7 @@ package Nillouise.service;
 
 import Nillouise.mapper.TaskMapper;
 import Nillouise.mapper.UserInfoMapper;
+import Nillouise.model.TagItem;
 import Nillouise.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,9 @@ public class TaskServiceImpl implements TaskService
 {
     @Autowired
     TaskMapper taskMapper;
-
+    @Autowired
+    TagItemService tagItemService;
+    //返回这个task的id
     public int add(Task task)
     {
         taskMapper.add(task);
@@ -37,11 +40,21 @@ public class TaskServiceImpl implements TaskService
 
     public List<Task> list(int userid, int begin, int end)
     {
-        return taskMapper.list(userid,begin,end);
+        List<Task> tasks = taskMapper.list(userid,begin,end);
+        for (Task i :tasks)
+        {
+            i.setTags(tagItemService.list(i.getId()));
+        }
+        return tasks;
     }
 
     public List<Task> list(int userid)
     {
-        return list(userid,0,100000);
+        List<Task> tasks = list(userid,0,100000);
+        for (Task i :tasks)
+        {
+            i.setTags(tagItemService.list(i.getId()));
+        }
+        return tasks;
     }
 }

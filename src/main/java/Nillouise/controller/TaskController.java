@@ -63,6 +63,7 @@ public class TaskController
                     tagItem.setTagid(i);
                     tagItem.setUserid(userid);
                     tagItem.setTaskid(task.getId());
+
                     tagItemService.add(tagItem);
                 }
             }
