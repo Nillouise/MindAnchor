@@ -8,7 +8,8 @@
         <option value="10">10</option>
     </select><br/>
     <input type="text" name="title" style="width: 80%;"/><br/>
-    <input type="text" name="content" style="height: 100px;width: 80%;"><br/>
+    <%-- input 据说不能换行，要用textarea --%>
+    <textarea name="content" style="height: 100px;width: 80%;"></textarea><br/>
     tags:<br/>
     <c:forEach items="${usertags}" var="tag" varStatus="vs">
         <label><input type="checkbox" name="selecttag" value="${tag.id}">${tag.title}</label>

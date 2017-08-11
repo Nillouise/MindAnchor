@@ -31,6 +31,8 @@ public class UserInfo
         this.username = source.username;
         this.password = source.password;
         this.createtime = source.createtime;
+        this.premindenergy=source.premindenergy;
+        this.maxmindenergy=source.maxmindenergy;
         return true;
     }
 

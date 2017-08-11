@@ -80,6 +80,16 @@ public class Task
         this.tags = tags;
     }
 
+    public int getBlock()
+    {
+        return block;
+    }
+
+    public void setBlock(int block)
+    {
+        this.block = block;
+    }
+
     @Override
     public String toString()
     {
@@ -95,5 +105,7 @@ public class Task
     public String title="";
     public String content="";
     public List<Tag> tags;
+    //0代表正常，1代表被删除了，其他数字待定，通常是service层才用到这个字段
+    public int block=0;
 
 }

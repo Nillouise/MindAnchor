@@ -12,7 +12,7 @@
     <c:forEach items="${tasks}" var="task" varStatus="st">
         <tr>
             <td>${task.costmindenergy}</td>
-            <td>${task.title}</td>
+            <td  title="${task.content}&#10;第二行">${task.title}</td>
         </tr>
     </c:forEach>
 </table>

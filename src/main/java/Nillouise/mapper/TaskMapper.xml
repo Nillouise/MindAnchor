@@ -11,4 +11,8 @@
     <insert id="add" parameterType="Nillouise.model.Task" useGeneratedKeys="true" keyProperty="id">
         insert into task ( userid,costmindenergy,title,content) values (#{userid},#{costmindenergy},#{title},#{content})
     </insert>
+    <update id="update" parameterType="Nillouise.model.Task">
+        update task set userid=#{userid},costmindenergy=#{costmindenergy},title=#{title},content=#{content},block=#{block} where id=#{id}
+    </update>
+
 </mapper>

@@ -25,7 +25,9 @@ public class TaskServiceImpl implements TaskService
 
     public boolean delete(Task task)
     {
-        return false;
+        task.setBlock(1);
+        int cnt = taskMapper.update(task);
+        return cnt>0;
     }
 
     public boolean update(Task task)

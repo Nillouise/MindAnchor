@@ -31,7 +31,7 @@
 <form action="/addtag.action" method="post">
     title<br/>
     <input type="text" name="title" style="width: 80%;"/><br/>
-    <input type="text" name="content" style="height: 100px;width: 80%;"><br/>
+    <textarea name="content" style="height: 100px;width: 80%;"></textarea><br/>
     <input type="submit" name="" id="submit">
 </form>
 

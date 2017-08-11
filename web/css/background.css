@@ -1,7 +1,14 @@
-body{
+body
+{
     background: #FDE6E0;
 }
 
-input{
+input
+{
+    background: #FDE6E0;
+}
+
+textarea
+{
     background: #FDE6E0;
 }
