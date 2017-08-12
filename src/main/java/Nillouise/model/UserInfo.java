@@ -32,6 +32,7 @@ public class UserInfo
         this.password = source.password;
         this.createtime = source.createtime;
         this.premindenergy=source.premindenergy;
+        this.premindenergytime=source.premindenergytime;
         this.maxmindenergy=source.maxmindenergy;
         return true;
     }
@@ -123,7 +124,7 @@ public class UserInfo
     //获得当前应该有多少MindEnergy，并会自动修改校准时间和当前MindEnergy
     public int getCurmindenergy()
     {
-        MindEnergy mindEnergy = new MindEnergy(premindenergytime,premindenergy);
+        MindEnergy mindEnergy = new MindEnergy(premindenergytime,premindenergy,maxmindenergy);
         premindenergytime = mindEnergy.getLasttime();
         premindenergy = mindEnergy.getCurmindenergy();
 

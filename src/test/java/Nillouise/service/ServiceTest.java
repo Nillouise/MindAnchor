@@ -34,6 +34,9 @@ public class ServiceTest extends SpringTestCase
 //        }
     }
 
+
+
+
     @Test
     public void taskTest()
     {
@@ -91,6 +94,13 @@ public class ServiceTest extends SpringTestCase
         MindEnergy  mindEnergy =  new MindEnergy(cur,0);
         System.out.println(mindEnergy.getLasttime());
         System.out.println(mindEnergy.getCurmindenergy());
+
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUsername("test1");
+        userInfo.setPassword("aaa");
+        userInfoService.select(userInfo);
+
+        System.out.println(userInfo.getCurmindenergy());
     }
 
     @Test

@@ -12,7 +12,7 @@
     <c:forEach items="${tasks}" var="task" varStatus="st">
         <tr>
             <td><a href="/deltask.action?id=${task.id}"><input type="button" value="del"></a> ${task.costmindenergy}</td>
-            <td  title="${task.content}&#10;${task.tagsstring}">${task.title}</td>
+            <td   title="${task.content}&#013;${task.tagsstring}">${task.title}</td>
         </tr>
     </c:forEach>
 </table>

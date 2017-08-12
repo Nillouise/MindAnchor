@@ -15,6 +15,7 @@
     <!-- 这里的mvc:resources 有问题，要把idea默认的上面的命名空间改掉才行，https://stackoverflow.com/questions/15406231/no-declaration-can-be-found-for-element-mvcannotation-driven -->
     <!--mvc:resources 作用是把.css文件等标记为资源，不需要控制器来解释他们 -->
     <mvc:resources mapping="/css/**" location="/css/"/>
+    <mvc:resources mapping="/js/**" location="/js/"/>
     <mvc:resources mapping="/*.html" location="/"/>
 
     <!--handnote 这个拦截器要放在这个dispatcher-servlet，调度器里，不能放在spring里 -->
