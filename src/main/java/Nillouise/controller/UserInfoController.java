@@ -1,8 +1,6 @@
 package Nillouise.controller;
 
-import Nillouise.model.Task;
 import Nillouise.model.UserInfo;
-import Nillouise.service.TaskService;
 import Nillouise.service.UserInfoService;
 import Nillouise.variable.StringConstant;
 import org.slf4j.Logger;
@@ -12,34 +10,33 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.jws.WebParam;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
- * Created by win7x64 on 2017/7/28.
+ * Created by win7x64 on 2017/7/22.
  */
 @Controller
-public class IndexController
+public class UserInfoController
 {
-    private static final Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserInfoController.class);
+
     @Autowired
-    private TaskService taskService;
+    private UserInfoService userInfoService;
 
-    @RequestMapping(value = "/",
+    @RequestMapping(value = "/changeuserinfo",
             method = {RequestMethod.GET})
-    public String loginPage(HttpSession session,Model model)
+    public String selectUser(Model model, HttpSession session)
     {
-        LOGGER.debug("through index controller");
-        Boolean isLogin = (Boolean)session.getAttribute(StringConstant.loginStatus);
+        session.getAttribute(StringConstant.userInfo);
         UserInfo userInfo = (UserInfo)session.getAttribute(StringConstant.userInfo);
+        model.addAttribute("userinfo",userInfo);
+        return "showuserinfo.jsp";
 
-        if(isLogin==null ||isLogin==false)
-        {
-            return "/index.jsp";
-        }
-        List<Task> list = taskService.list(userInfo.getId(),0,10);
-        model.addAttribute("tasks",list);
-        return "/index.jsp";
     }
+
 }

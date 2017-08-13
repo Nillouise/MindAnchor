@@ -66,7 +66,6 @@ public class TaskController
                     tagItemService.add(tagItem);
                 }
             }
-
         }else {
             return "redirect:/error/addtask.jsp";
         }

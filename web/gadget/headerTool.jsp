@@ -12,7 +12,9 @@
         ${sessionScope['userInfo']['curmindenergy']} / ${sessionScope['userInfo']['maxmindenergy']}
         </span>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        ${sessionScope['userInfo']['username']}
+        <a href="/changeuserinfo">
+                ${sessionScope['userInfo']['username']}
+        </a>
         <a href="/loginout.action">注销</a>&nbsp;
         <a href='/tagmanage'>标签</a>
     </c:if>

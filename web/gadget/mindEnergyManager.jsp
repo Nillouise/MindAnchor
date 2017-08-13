@@ -24,7 +24,7 @@
         display: none;
     }
 </style>
-
+<%-- 这些代表 解决在手机不能读title的tooltip问题 --%>
 <script type='text/javascript'>//<![CDATA[
 window.onload=function(){
 
