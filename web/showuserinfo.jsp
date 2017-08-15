@@ -1,10 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%--
-  Created by IntelliJ IDEA.
-  User: win7x64
-  Date: 2017/8/13
-  Time: 22:47
-  To change this template use File | Settings | File Templates.
+handnote
+这个页面用数据绑定技术和标签，让spring框架利用request的数据生成一个userinfo对象再传给controller
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -23,6 +20,7 @@
         <label for="password">password: </label>
         <form:input id="password" path="password"/>
     </p>
+    <input type="submit" value="submit"/>
 </fieldset>
 </form:form>
 </body>

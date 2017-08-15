@@ -103,6 +103,14 @@
             <artifactId>spring-webmvc</artifactId>
             <version>4.3.0.RELEASE</version>
         </dependency>
+        <!-- 使用apo必须要的包-->
+        <dependency>
+            <groupId>aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.5.4</version>
+        </dependency>
+
+
 
     </dependencies>
 

@@ -1,5 +1,6 @@
 package Nillouise.controller;
 
+import Nillouise.model.DeadLineTask;
 import Nillouise.model.TagItem;
 import Nillouise.model.Task;
 import Nillouise.model.UserInfo;
@@ -12,11 +13,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+import java.net.BindException;
 
 /**
  * Created by win7x64 on 2017/7/23.
@@ -78,6 +82,29 @@ public class TaskController
         taskService.delete(id);
 
         return "redirect:/";
+    }
+
+    @RequestMapping(value = "deadline")
+    public String inputDeadline(Model model)
+    {
+        model.addAttribute("task",new DeadLineTask());
+        return "deadline.jsp";
+    }
+
+    @RequestMapping(value = "deadline_save",method = RequestMethod.POST)
+    public String saveDeadline(@ModelAttribute DeadLineTask task,
+                               BindingResult bindingResult,Model model)
+    {
+        model.addAttribute("task",task);
+        if(bindingResult.hasErrors()){
+            FieldError fieldError = bindingResult.getFieldError();
+            System.out.println("Code: "+ fieldError.getCode()
+                    +", field: "+fieldError.getField()
+            );
+            return "deadline.jsp";
+        }
+        System.out.println(task.getDeadline());
+        return "deadline.jsp";
     }
 
 }

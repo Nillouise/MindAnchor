@@ -3,7 +3,8 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
     http://www.springframework.org/schema/mvc
@@ -11,7 +12,7 @@
     http://www.springframework.org/schema/tx
     http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
     http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+    http://www.springframework.org/schema/context/spring-context-4.1.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- handnote -->
     <!-- 注意这里的value都是用双引号引起来的，也有种不引起来的写法，那是代表一个变量名字（这个变量名字也是在这个xml文件里设置导入的） -->
@@ -50,6 +51,20 @@
     <!--https://www.mkyong.com/spring/spring-how-to-do-dependency-injection-in-your-session-listener/-->
     <!--<bean id="SessionListenerService" class="Nillouise.service.UserInfoServiceImpl" />-->
 
+
+    <!-- 定义converter -->
+    <bean id="conversionService"
+          class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <!--<list></list> 这里书上用这个标签，不过会报错 -->
+            <util:list list-class="java.util.ArrayList">
+                <bean class="Nillouise.converter.StringToDateConverter">
+                    <constructor-arg type="java.lang.String"
+                                     value="yyyy-MM-dd" />
+                </bean>
+            </util:list>
+        </property>
+    </bean>
 
 
 </beans>

@@ -28,6 +28,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.3.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.3.0.RELEASE" />
           <element id="library" level="project" name="Maven: joda-time:joda-time:2.9.9" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.5.4" />
         </element>
       </element>
     </root>

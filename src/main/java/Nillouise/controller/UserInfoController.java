@@ -30,13 +30,19 @@ public class UserInfoController
 
     @RequestMapping(value = "/changeuserinfo",
             method = {RequestMethod.GET})
-    public String selectUser(Model model, HttpSession session)
+    public String page(Model model, HttpSession session)
     {
         session.getAttribute(StringConstant.userInfo);
         UserInfo userInfo = (UserInfo)session.getAttribute(StringConstant.userInfo);
         model.addAttribute("userinfo",userInfo);
         return "showuserinfo.jsp";
 
+    }
+    @RequestMapping(value = "changeuserinfo.action",method = {RequestMethod.POST})
+    public String change(UserInfo userinfo)
+    {
+        System.out.println(userinfo);
+        return "redirect:/";
     }
 
 }

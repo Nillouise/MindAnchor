@@ -1,6 +1,7 @@
 package Nillouise.service;
 
 import Nillouise.baseTest.SpringTestCase;
+import Nillouise.converter.StringToDateConverter;
 import Nillouise.model.Tag;
 import Nillouise.model.TagItem;
 import Nillouise.model.Task;
@@ -150,6 +151,14 @@ public class ServiceTest extends SpringTestCase
     public void testTagItemService()
     {
         List<Tag> list = tagItemService.list(1);
+    }
+
+
+    @Test
+    public void testConverter()
+    {
+        StringToDateConverter s = new StringToDateConverter("yyyy-MM-dd");
+        System.out.println(s.convert("2010:5:6"));
     }
 
 
