@@ -4,19 +4,115 @@
 <p style="text-align:center">
     <h5>Mind Energy Management </h5>
 <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
-
+<script type="text/javascript" src="js/json2.js"></script>
 <%--往表格里增加时间的js代码 --%>
 <script type="text/javascript">
 
-    function addtablecolumn()
+    var hasShow=false;
+    function requestTaskInfo(taskidjson,callbackfun)
+    {
+        $.ajax("${pageContext.request.contextPath}/json/requesttaskinfo",
+            {
+                dataType:"json",
+                type:"post",
+                contentType:"application/json;charset=utf-8",
+                data:JSON.stringify(taskidjson),
+                async:true,
+                success:callbackfun,
+                error:function ()
+                {
+                    console.log("json send fail");
+                }
+            });
+
+    }
+
+    function channel(){
+        //来判断发送的链接
+        var schoolBannerInfo = {
+            "img": "2",
+            "title": "2fdf",
+            "info": "2",
+            "channelId": "2"
+        };
+
+        $.ajax({
+            url:"/json/channel",
+            type:"post",
+            dataType:'json',
+
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            data:JSON.stringify(schoolBannerInfo),
+            success:function(data){
+            alert(data);
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown){
+            alert("Error")
+            alert(XMLHttpRequest.status);
+            alert(XMLHttpRequest.readyState);
+            alert(textStatus);
+        }
+    });
+    }
+    function searchByid(array,id)
+    {
+        for(var i = 0;i<array.length;i++)
+        {
+            if(parseInt(array[i].id)==id)
+            {
+                return array[i];
+            }
+        }
+        return null;
+    }
+
+    function taskinfocallback(data)
     {
         var column = document.getElementsByClassName("taskdate");
         for(var i=0;i<column.length;i++)
         {
-//            column[i].innerHTML="fsdfdfsdf";
+            if(column[i].id!="")
+            {
+                var task = searchByid(data.task,parseInt(column[i].id));
+                column[i].innerHTML=task.createtime;
+
+            }
             column[i].style.display='block';
-//            column.hidden=false;
         }
+    }
+
+    function addtablecolumn()
+    {
+        if(hasShow==false)
+        {
+            hasShow=true;
+            var column = document.getElementsByClassName("taskdate");
+            var json={};
+            json["taskid"]=[];
+            for(var i=0;i<column.length;i++)
+            {
+                if(column[i].id!="")
+                {
+                    json["taskid"].push(column[i].id);
+                }
+                //column[i].style.display='block';
+            }
+            requestTaskInfo(json,taskinfocallback);
+            return;
+        }else{
+            hasShow=false;
+            var column = document.getElementsByClassName("taskdate");
+            for(var i=0;i<column.length;i++)
+            {
+                column[i].style.display='none';
+//            column.hidden=false;
+            }
+            return;
+        }
+
 
     }
 
@@ -115,7 +211,7 @@ window.onload=function(){
 </table>
 
 <input type="button" onclick="addtablecolumn()"/>
-
+<input type="button" onclick="channel()" value="测试ajax"/>
 <script>
     // tell the embed parent frame the height of the content
     if (window.parent && window.parent.parent){
