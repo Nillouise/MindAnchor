@@ -47,7 +47,7 @@
             },
             data:JSON.stringify(schoolBannerInfo),
             success:function(data){
-            alert(data);
+            alert(data.title);
         },
         error:function(XMLHttpRequest, textStatus, errorThrown){
             alert("Error")
@@ -76,8 +76,8 @@
         {
             if(column[i].id!="")
             {
-                var task = searchByid(data.task,parseInt(column[i].id));
-                column[i].innerHTML=task.createtime;
+                var task = searchByid(data,parseInt(column[i].id));
+                column[i].innerHTML=new Date(parseInt(task.createtime)).toUTCString();
 
             }
             column[i].style.display='block';
