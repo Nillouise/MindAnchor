@@ -21,6 +21,8 @@ handnote
         <form:input id="password" path="password"/>
     </p>
     <input type="submit" value="submit"/>
+    <input type="text" value="${modelattribute}"/>
+
 </fieldset>
 </form:form>
 </body>

@@ -4,6 +4,25 @@
 <p style="text-align:center">
     <h5>Mind Energy Management </h5>
 <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+
+<%--往表格里增加时间的js代码 --%>
+<script type="text/javascript">
+
+    function addtablecolumn()
+    {
+        var column = document.getElementsByClassName("taskdate");
+        for(var i=0;i<column.length;i++)
+        {
+//            column[i].innerHTML="fsdfdfsdf";
+            column[i].style.display='block';
+//            column.hidden=false;
+        }
+
+    }
+
+
+</script>
+
 <style type="text/css">
     .more_info {
         border-bottom: 1px dotted #000;
@@ -76,13 +95,15 @@ window.onload=function(){
 
 </script>
 
-<table align='center' border='1' cellspacing='0'>
+<table id="tasktable" align='center' border='1' cellspacing='0'>
     <tr>
+        <th style="display: none;" class="taskdate">Time</th>
         <th>MindEnergy</th>
         <th>Title</th>
     </tr>
     <c:forEach items="${tasks}" var="task" varStatus="st">
         <tr>
+            <td style="display: none;" id="${task.id}" class="taskdate">${task.createtime}</td>
             <td><a href="/deltask.action?id=${task.id}"><input type="button" value="del"></a> ${task.costmindenergy}</td>
             <td>
                 <span class="more_info" >${task.title}
@@ -92,6 +113,8 @@ window.onload=function(){
         </tr>
     </c:forEach>
 </table>
+
+<input type="button" onclick="addtablecolumn()"/>
 
 <script>
     // tell the embed parent frame the height of the content

@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,9 +18,7 @@ import javax.jws.WebParam;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-/**
- * Created by win7x64 on 2017/7/22.
- */
+
 @Controller
 public class UserInfoController
 {
@@ -43,6 +42,14 @@ public class UserInfoController
     {
         System.out.println(userinfo);
         return "redirect:/";
+    }
+
+    //这个方法会在其他方法之前调用，并把返回值放到键"modelattribute"里面
+    //当然也可以显式往model里加对象
+    @ModelAttribute("modelattribute")
+    public String userModel()
+    {
+        return "modelvalue";
     }
 
 }

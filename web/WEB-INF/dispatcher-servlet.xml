@@ -29,8 +29,7 @@
     </mvc:interceptors>
 
     <!--这里应该是注册转换器-->
-    <mvc:annotation-driven
-        conversion-service="conversionService"/>
+    <mvc:annotation-driven conversion-service="conversionService"/>
 
     <!--aop要放在这里才行，因为controller这些bean是归这个xmlfile管的，另外这里需要xsi:schemaLocation加上某些东西 -->
     <aop:aspectj-autoproxy />

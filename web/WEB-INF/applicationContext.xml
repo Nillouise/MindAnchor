@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!--按我猜测，这个context文件只是因为这个项目使用了spring框架，而自动生成的， -->
+<!--而spring mvc的dispatcher-servlet.xml也完全是一个spring context（而dispatcher-servlet应该是mvc内置的servlet，这个context是context而不是servlet）-->
+<!--，而dispatcher-servlet.xml是spring mvc生成的，而且会在mvc内置的servlet load这个dispatcher-servlet.xml作为context -->
+<!--所以applicantionContext.xml完全可以不用存在（我的猜测），只是idea自动根据我用了spring框架生成的。。。 -->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:tx="http://www.springframework.org/schema/tx"

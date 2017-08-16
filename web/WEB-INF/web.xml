@@ -13,7 +13,8 @@
     </context-param>
 
 
-    <!-- spring的配置文件-->
+    <!-- spring context的配置文件-->
+    <!--这个应该跟dispatcher没什么关系，我也不知道了。。。 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/applicationContext.xml</param-value>
@@ -22,6 +23,7 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     <servlet>
+        <!-- 这里吧他命名成这个，那么spring会自动找dispatcher-servlet.xml 作为这个dispatcher的配置文件，并根据xml文件生成WebApplicationContext -->
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
