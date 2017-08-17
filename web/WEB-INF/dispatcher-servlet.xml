@@ -42,5 +42,10 @@
         </aop:aspect>
     </aop:config>
 
+    <!--进行国际化 -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames" value="locale.message"></property>
+    </bean>
+
 
 </beans>
