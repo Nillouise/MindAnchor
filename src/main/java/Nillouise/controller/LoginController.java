@@ -59,6 +59,9 @@ public class LoginController
         curUser.copyFrom(loginForm);
         boolean loginSuccess = userInfoService.select(curUser);
 
+
+
+
         if(loginSuccess)
         {
             session.setAttribute(StringConstant.loginStatus,true);
