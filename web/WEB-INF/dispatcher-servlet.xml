@@ -15,6 +15,7 @@
 
 <!--注册Controller定义的控制器的bean对象 -->
     <context:component-scan base-package="Nillouise.controller"></context:component-scan>
+    <context:component-scan base-package="Nillouise.validator"></context:component-scan>
 
     <mvc:annotation-driven/>
     <!-- 这里的mvc:resources 有问题，要把idea默认的上面的命名空间改掉才行，https://stackoverflow.com/questions/15406231/no-declaration-can-be-found-for-element-mvcannotation-driven -->
@@ -40,7 +41,7 @@
             <aop:before pointcut-ref="login" method="beforeLogin"/>
             <aop:after pointcut-ref="login" method="afterLogin"/>
         </aop:aspect>
-        
+
     </aop:config>
 
     <!--进行国际化 -->

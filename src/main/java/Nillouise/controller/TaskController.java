@@ -7,18 +7,22 @@ import Nillouise.model.UserInfo;
 import Nillouise.service.TagItemService;
 import Nillouise.service.TaskService;
 import Nillouise.service.UserInfoService;
+import Nillouise.validator.TaskValidator;
 import Nillouise.variable.StringConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.jws.WebParam;
 import javax.servlet.http.HttpSession;
 import java.net.BindException;
 
@@ -106,5 +110,22 @@ public class TaskController
         System.out.println(task.getDeadline());
         return "deadline.jsp";
     }
+
+    @Autowired
+    @Qualifier("taskValidator")
+    private TaskValidator taskValidator;
+
+    @RequestMapping(value = "/newtask2.action")
+    public String addtask2(@ModelAttribute Task task, Model model, Errors errors)
+    {
+        model.addAttribute("task",task);
+        taskValidator.validate(task,errors);
+        if(errors.hasErrors())
+        {
+            return "gadget/newtaskv2.jsp";
+        }
+        return "gadget/newtaskv2.jsp";
+    }
+
 
 }
