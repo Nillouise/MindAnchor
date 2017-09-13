@@ -8,6 +8,9 @@
 <%--往表格里增加时间的js代码 --%>
 <script type="text/javascript">
 
+
+
+
     var hasShow=false;
     //往Date对象加入Format方法，使其能格式化输出时间
     Date.prototype.Format = function (fmt) { //author: meizz
@@ -29,7 +32,7 @@
     //把date对象转成 "dd hh:mm"的格式
     Date.prototype.formatString = function ()
     {
-        var str = this.getUTCDate()+" "+this.getUTCHours()+":"+this.getUTCMinutes();
+        var str = this.getUTCHours()+":"+this.getUTCMinutes()+" "+this.getUTCDate();
         return str;
     }
 
