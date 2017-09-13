@@ -23,8 +23,6 @@
         <a href='/login'> 登录 </a>&nbsp;
         <a href='/registerpage'> 注册 </a>&nbsp;
     </c:if>
-
-
     <%--<%--%>
         <%--Boolean loginStatus = (Boolean)(request.getSession().getAttribute("loginStatus"));--%>
         <%--if(loginStatus==null)loginStatus=false;--%>
@@ -40,7 +38,5 @@
     <%--<%--%>
         <%--}--%>
     <%--%>--%>
-
-
 </p>
 

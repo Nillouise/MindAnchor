@@ -31,20 +31,20 @@ public class JosnController
     private TaskService taskService;
 
     @RequestMapping(value = "/requesttaskinfo",method = RequestMethod.POST)
-    public void setJson(@RequestBody RecevieJson taskid, HttpServletResponse response)throws Exception
+    public void setJson(@RequestBody RecevieJson json, HttpServletResponse response)throws Exception
     {
         List<Task> returnJson = new ArrayList<Task>();
-        if(taskid!=null)
+        if(json!=null)
         {
-            for (int i=0;i<taskid.getTaskid().length;i++)
+            for (int i=0;i<json.getTaskid().length;i++)
             {
-                Task task = taskService.select(taskid.getTaskid()[i]);
+                Task task = taskService.select(json.getTaskid()[i]);
                 returnJson.add(task);
             }
         }
 
         ObjectMapper mapper = new ObjectMapper();
-        LOGGER.info("传过来的id: "+mapper.writeValueAsString(taskid));
+        LOGGER.info("传过来的id: "+mapper.writeValueAsString(json));
         response.setContentType("text/html;charset=UTF-8");
         response.getWriter().println(mapper.writeValueAsString(returnJson));
     }

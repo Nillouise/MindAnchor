@@ -17,5 +17,6 @@
   <jsp:include page="gadget/mindEnergyManager.jsp"></jsp:include>
   <jsp:include page="gadget/newtask.jsp"></jsp:include>
 
+
   </body>
 </html>

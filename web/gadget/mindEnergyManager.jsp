@@ -9,6 +9,30 @@
 <script type="text/javascript">
 
     var hasShow=false;
+    //往Date对象加入Format方法，使其能格式化输出时间
+    Date.prototype.Format = function (fmt) { //author: meizz
+        var o = {
+            "M+": this.getMonth() + 1, //月份
+            "d+": this.getDate(), //日
+            "h+": this.getHours(), //小时
+            "m+": this.getMinutes(), //分
+            "s+": this.getSeconds(), //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+            "S": this.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+
+    //把date对象转成 "dd hh:mm"的格式
+    Date.prototype.formatString = function ()
+    {
+        var str = this.getUTCDate()+" "+this.getUTCHours()+":"+this.getUTCMinutes();
+        return str;
+    }
+
     function requestTaskInfo(taskidjson,callbackfun)
     {
         $.ajax("${pageContext.request.contextPath}/json/requesttaskinfo",
@@ -77,7 +101,7 @@
             if(column[i].id!="")
             {
                 var task = searchByid(data,parseInt(column[i].id));
-                column[i].innerHTML=new Date(parseInt(task.createtime)).toUTCString();
+                column[i].innerHTML=new Date(parseInt(task.createtime)).formatString();
 
             }
             column[i].style.display='block';
@@ -210,8 +234,8 @@ window.onload=function(){
     </c:forEach>
 </table>
 
-<input type="button" onclick="addtablecolumn()"/>
-<input type="button" onclick="channel()" value="测试ajax"/>
+<input type="button" onclick="addtablecolumn()" value="Time"/>
+<%--<input type="button" onclick="channel()" value="测试ajax"/>--%>
 <script>
     // tell the embed parent frame the height of the content
     if (window.parent && window.parent.parent){

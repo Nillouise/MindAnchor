@@ -118,6 +118,9 @@ public class TaskController
     @RequestMapping(value = "/newtask2.action")
     public String addtask2(@ModelAttribute Task task, Model model, Errors errors)
     {
+        //这里是正确把error送了进去errors，但渲染时居然自动用了国际化资源（因为有一个字段名字是国际化资源里面的）
+        //但我明明没有用message标签，不知道为啥会渲染成这个样子
+
         model.addAttribute("task",task);
         taskValidator.validate(task,errors);
         if(errors.hasErrors())

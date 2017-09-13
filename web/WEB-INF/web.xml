@@ -15,6 +15,7 @@
 
     <!-- spring context的配置文件-->
     <!--这个应该跟dispatcher没什么关系，我也不知道了。。。 -->
+    <!--http://www.cnblogs.com/parryyang/p/5783399.html-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/applicationContext.xml</param-value>
