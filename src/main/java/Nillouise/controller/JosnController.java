@@ -30,8 +30,8 @@ public class JosnController
     @Autowired
     private TaskService taskService;
 
-    @RequestMapping(value = "/requesttaskinfo",method = RequestMethod.POST)
-    public void setJson(@RequestBody RecevieJson json, HttpServletResponse response)throws Exception
+    @RequestMapping(value = "/requesttaskinfo.do",method = RequestMethod.POST)
+    public void taskTimeJSon(@RequestBody RecevieJson json, HttpServletResponse response)throws Exception
     {
         List<Task> returnJson = new ArrayList<Task>();
         if(json!=null)
@@ -70,6 +70,15 @@ public class JosnController
         return shop;
     }
 
+    @RequestMapping(value = "/refreshsession.do",method = RequestMethod.POST)
+    public void refreshSessionJSON(@RequestBody String json, HttpServletResponse response)throws Exception
+    {
+        ObjectMapper mapper = new ObjectMapper();
+        response.setContentType("text/html;charset=UTF-8");
+//        单单把"refresh successful"传回去会引起parse error，因为这样传回去是refresh successful 这个变量名，而不是”refresh successful“这个字符串值。
+//        总的来说，少了双引号js就不知道怎么把他当成json了
+        response.getWriter().println(mapper.writeValueAsString("refresh successful"));
+    }
 }
 
 

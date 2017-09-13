@@ -10,6 +10,9 @@
   <head>
     <title>Mind Anchor</title>
     <link rel="stylesheet" href="css/background.css" type="text/css"/>
+    <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/json2.js"></script>
+    <script type="text/javascript" src="/js/refreshsession.js"></script>
   </head>
   <body>
   <jsp:include page="gadget/headerTool.jsp"></jsp:include>

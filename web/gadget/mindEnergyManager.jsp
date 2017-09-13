@@ -38,7 +38,7 @@
 
     function requestTaskInfo(taskidjson,callbackfun)
     {
-        $.ajax("${pageContext.request.contextPath}/json/requesttaskinfo",
+        $.ajax("${pageContext.request.contextPath}/json/requesttaskinfo.do",
             {
                 dataType:"json",
                 type:"post",
