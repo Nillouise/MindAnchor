@@ -46,6 +46,9 @@ public class JosnController
         ObjectMapper mapper = new ObjectMapper();
         LOGGER.info("传过来的id: "+mapper.writeValueAsString(json));
         response.setContentType("text/html;charset=UTF-8");
+        LOGGER.info(mapper.writeValueAsString(returnJson));
+        for(Task t :returnJson) System.out.println(t.getCreatetime());
+
         response.getWriter().println(mapper.writeValueAsString(returnJson));
     }
 

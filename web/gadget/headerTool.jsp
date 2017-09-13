@@ -10,7 +10,7 @@
     <c:if test="${'true'==sessionScope['loginStatus']}">
         <script>
             window.setInterval(refreshMindEnergy,1000*60*6);
-            window.setInterval(refreshGapTaskTime,1000);
+            window.setInterval(refreshGapTaskTime,1000*30);
 
 
             function refreshMindEnergy()
@@ -24,13 +24,16 @@
             function refreshGapTaskTime()
             {
                 <c:if test="${tasks.size()>0}">
-                    var lastUTC = new Date(${tasks[0].createtime.time}).toUTCString();
-                    var curUTC = new Date().toString();
+                    <%--var lastUTC = new Date(${tasks[0].createtime.time}).toUTCString();--%>
+                    <%--var curUTC = new Date().toString();--%>
 
-                    var dateStr = lastUTC.trim().split(" ");
-                    var strGMT = dateStr[0]+" "+dateStr[1]+" "+dateStr[2]+" "+dateStr[5]+" "+dateStr[3]+" "+dateStr[4]+" GMT+0800";
-                    var lasttime = new Date(strGMT).getTime();
-                    var curtime = new Date(curUTC).getTime();
+                    <%--var dateStr = lastUTC.trim().split(" ");--%>
+                    <%--var strGMT = dateStr[0]+" "+dateStr[1]+" "+dateStr[2]+" "+dateStr[5]+" "+dateStr[3]+" "+dateStr[4]+" GMT+0800";--%>
+                    <%--var lasttime = new Date(strGMT).getTime();--%>
+                    <%--var curtime = new Date(curUTC).getTime();--%>
+
+                    var lasttime = ${tasks[0].createtime.time};
+                    var curtime = new Date().getTime();
                     var gap = curtime-lasttime;
                     var ele = document.getElementById("gaptasktime");
 

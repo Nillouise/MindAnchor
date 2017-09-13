@@ -23,7 +23,8 @@
     <!-- 注意这里的value都是用双引号引起来的，也有种不引起来的写法，那是代表一个变量名字（这个变量名字也是在这个xml文件里设置导入的） -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="        jdbc:mysql://localhost:3306/mindanchor?characterEncoding=UTF-8&amp;serverTimezone=UTC" />
+        <property name="url" value="        jdbc:mysql://localhost:3306/mindanchor?characterEncoding=UTF-8&amp;serverTimezone=GMT%2B8" />
+        <!--<property name="url" value="        jdbc:mysql://localhost:3306/mindanchor?characterEncoding=UTF-8" />-->
         <property name="username" value="root" />
         <property name="password" value="admin" />
     </bean>

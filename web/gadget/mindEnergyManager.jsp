@@ -32,7 +32,7 @@
     //把date对象转成 "dd hh:mm"的格式
     Date.prototype.formatString = function ()
     {
-        var str = this.getUTCHours()+":"+this.getUTCMinutes()+" "+this.getUTCDate();
+        var str = this.getHours()+":"+this.getMinutes()+" "+this.getDate();
         return str;
     }
 
