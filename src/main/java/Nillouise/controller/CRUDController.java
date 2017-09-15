@@ -12,9 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-/**
- * Created by win7x64 on 2017/7/22.
- */
+
 @Controller
 public class CRUDController
 {

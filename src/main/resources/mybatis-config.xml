@@ -17,7 +17,7 @@
                 <!--更新：不会不一致，数据库里保存的是UTC时区，但查询时会自动转换过来 -->
                 <!-- 之前我用serverTimezone=UTC这个设置是因为不用的话会error，现在不用又不会error -->
                 <!--<property name="url" value="jdbc:mysql://localhost:3306/mindanchor?characterEncoding=UTF-8&amp;serverTimezone=UTC"/>-->
-                <property name="url" value="jdbc:mysql://localhost:3306/mindanchor?characterEncoding=UTF-8"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/mindanchor?characterEncoding=GMT%2B8"/>
                 <property name="username" value="root"/>
                 <property name="password" value="admin"/>
             </dataSource>
