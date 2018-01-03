@@ -19,7 +19,8 @@
   首页内容
   <jsp:include page="gadget/mindEnergyManager.jsp"></jsp:include>
   <jsp:include page="gadget/newtask.jsp"></jsp:include>
-
+  <br/>
+  <a href="/wakeonlan">打开电脑</a>
 
   </body>
 </html>
