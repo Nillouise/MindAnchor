@@ -71,7 +71,6 @@ public class WakeOnLanController {
             recordTimeNillouise = curtime;
         }
         recordTimeNillouise += 4*60*1000;
-
         return "redirect:/wakeonlan";
     }
 
