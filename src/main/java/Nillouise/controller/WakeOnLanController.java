@@ -11,13 +11,13 @@ import java.util.Date;
 
 @Controller
 public class WakeOnLanController {
-    private static long recordTimeNillouise = new Date().getTime();
-    private static long recordTimeDieofai = new Date().getTime();
+    private static long recordTimeNillouise = System.currentTimeMillis();
+    private static long recordTimeDieofai = System.currentTimeMillis();
 
     @RequestMapping(value = "wakeonlan")
     public String page(Model model)
     {
-        long curtime = new Date().getTime();
+        long curtime = System.currentTimeMillis();
         if(recordTimeNillouise < curtime)
         {
             recordTimeNillouise = curtime;
@@ -36,7 +36,7 @@ public class WakeOnLanController {
     @RequestMapping(value = "wakeonlannillouise.action")
     public String nillouise(Model model)
     {
-        long curtime = new Date().getTime();
+        long curtime = System.currentTimeMillis();
         if(recordTimeNillouise <curtime)
         {
             recordTimeNillouise = curtime;
@@ -48,7 +48,7 @@ public class WakeOnLanController {
     @RequestMapping(value = "wakeonlandieofai.action")
     public String dieofai(Model model)
     {
-        long curtime = new Date().getTime();
+        long curtime = System.currentTimeMillis();
         if(recordTimeDieofai <curtime)
         {
             recordTimeDieofai = curtime;
