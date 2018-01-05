@@ -31,7 +31,6 @@ public class StringToDateConverter implements Converter<String,Date>
             dateFormat.setLenient(false);
             Date r = dateFormat.parse(s);
             LOGGER.info("转换成的日期："+r.toString());
-
             return dateFormat.parse(s);
         } catch (ParseException e) {
             throw new IllegalArgumentException(
